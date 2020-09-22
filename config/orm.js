@@ -71,7 +71,7 @@ const orm = {
       }
       cb(result);
     });
-  }
+  },
 };
 
 module.exports = orm;
