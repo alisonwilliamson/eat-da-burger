@@ -1,23 +1,29 @@
+// dependencies 
 var express = require("express");
 var bodyParser = require("body-parser");
+var exphbs = require("express-handlebars");
 
-
-var port = process.env.PORT || 3000; 
+// port for deployment
+var PORT = process.env.PORT || 3000; 
 
 var app = express();
 
-app.use(express.static(process.cwd() + "/public"));
+// static route
+app.use(express.static("public"));
 
+// connect to body parser
 app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.json());
 
-var exphbs = require("express-handlebars");
-
+// template engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes
-var routes = require("./controllers/controller.js");
+var routes = require("./controllers/burgers_controller.js");
+app.use(routes);
 
-app.use("/", routes);
-
-app.listen(port);
+// listening on the port
+app.listen(PORT, function(){
+  console.log("Server listenting on: http://localhost:" + PORT);
+});
