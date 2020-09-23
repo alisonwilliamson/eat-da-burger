@@ -37,5 +37,13 @@ router.put("/:id", function(req, res) {
   });
 });
 
-// Export routes for server.js to use.
+router.delete("/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  burger.delete(condition, function() {
+    res.redirect("/");
+  });
+});
+
+// export routes for server.js to use
 module.exports = router;

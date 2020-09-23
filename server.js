@@ -6,7 +6,6 @@ var port = process.env.PORT || 3000;
 
 var app = express();
 
-// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + "/public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,7 +16,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
+// import routes
 var routes = require("./controllers/controller.js");
 
 app.use("/", routes);

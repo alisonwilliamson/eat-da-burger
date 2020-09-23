@@ -60,7 +60,7 @@ var orm = {
   // update a row in the table
   updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
-    
+
     queryString += " SET ";
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
@@ -69,6 +69,18 @@ var orm = {
     console.log(queryString);
 
     connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  
+  deleteOne: function (table, condition, cb) {
+    let queryString = "DELETE FROM " + table + " WHERE " + condition;
+
+    console.log(queryString);
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
