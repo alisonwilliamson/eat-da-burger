@@ -3,11 +3,11 @@ const mysql = require("mysql");
 
 // create connection to local host
 const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "maggiemay233",
-    database: "burgers_db"
+    host:"localhost",
+    port:3306,
+    user:"root",
+    password:"maggiemay233",
+    database:"burgers_db"
 });
 
 

@@ -12,7 +12,6 @@
 This is a burger logger created with MySQL, Node, Express, Handlebars and a homemade ORM. It follows the MVC design pattern; and uses Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
 
 ## Demo
-
 https://eat-da-burger-alison.herokuapp.com/
 
 ![Screenshot (53)](https://user-images.githubusercontent.com/54878075/93968909-b4b55500-fd38-11ea-862e-4d411af514b9.png)

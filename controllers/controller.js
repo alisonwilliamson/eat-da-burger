@@ -8,7 +8,7 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
     var hbsObject = {
-      burgers: data
+      burgers:data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -31,7 +31,7 @@ router.put("/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.updateOne({
-    devoured: req.body.devoured
+    devoured:req.body.devoured
   }, condition, function() {
     res.redirect("/");
   });
