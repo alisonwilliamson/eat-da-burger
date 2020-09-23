@@ -1,5 +1,5 @@
 // import ORM to connect with db
-var orm = require("../config/orm.js");
+var orm = require("../config/orm");
 
 var burger = {
   selectAll: function(cb) {
@@ -20,7 +20,7 @@ var burger = {
     });
   },
 
-  delete: function (condition, cb) {
+  deleteOne: function (condition, cb) {
     orm.deleteOne("burgers", condition, function (res) {
       cb(res);
     });

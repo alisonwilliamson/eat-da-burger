@@ -1,16 +1,15 @@
-// import packages
-const mysql = require("mysql");
+// dependencies
+var mysql = require("mysql");
 
-// create connection to local host
-const connection = mysql.createConnection({
+// connection settings
+connection = mysql.createConnection({
     host:"localhost",
-    port:3306,
     user:"root",
     password:"maggiemay233",
     database:"burgers_db"
 });
 
-
+// create connection and console.log if connected
 connection.connect(function (err) {
     if (err) {
         console.error("error connecting: " + err.stack);

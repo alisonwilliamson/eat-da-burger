@@ -1,47 +1,53 @@
 var express = require("express");
+var burger = require("../models/burger");
+
 var router = express.Router();
-// import burger.js to use db functions
-var burger = require("../models/burger.js");
 
-
-// Create all our routes and set up logic within those routes where required.
+// get router
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
-    var hbsObject = {
-      burgers:data
+    var hdbrsObj = {
+      burgers: data
     };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+    console.log(hdbrsObj);
+    res.render("index", hdbrsObj);
   });
 });
 
-router.post("/", function(req, res) {
-  burger.insertOne([
-    "burger_name", "devoured"
-  ], [
-    req.body.burger_name, req.body.devoured
-  ], function() {
-    res.redirect("/");
-  });
+router.post("/api/burgers", function(req, res) {
+  burger.insertOne(
+    ["burger_name", "devoured"], 
+    [req.body.burger_name, req.body.devoured], 
+    function(result) {
+      res.json({ id: result.insertId});
+    }
+  );
 });
 
-router.put("/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
-
-  burger.updateOne({
-    devoured:req.body.devoured
-  }, condition, function() {
-    res.redirect("/");
-  });
+  burger.updateOne({ devoured: req.body.devoured }, condition, 
+    function(result) {
+      if (result.changedRows === 0) {
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
+    });
 });
 
-router.delete("/:id", function(req, res) {
+router.deleteOne("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
+  console.log("condition", condition);
 
-  burger.delete(condition, function() {
-    res.redirect("/");
+  burger.deleteOne(condition, function(result) {
+    if (result.changedRows === 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
   });
 });
 
