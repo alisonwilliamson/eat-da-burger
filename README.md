@@ -1,5 +1,5 @@
 # eat-da-burger
 
-![Screenshot (46)](https://user-images.githubusercontent.com/54878075/93968567-e2e66500-fd37-11ea-9d8d-7ff2ea9a8e59.png)
-![Screenshot (47)](https://user-images.githubusercontent.com/54878075/93968565-e24dce80-fd37-11ea-9f7a-8117298a5e07.png)
-![Screenshot (48)](https://user-images.githubusercontent.com/54878075/93968572-e4179200-fd37-11ea-8478-382873e0336c.png)
+![Screenshot (53)](https://user-images.githubusercontent.com/54878075/93968909-b4b55500-fd38-11ea-862e-4d411af514b9.png)
+![Screenshot (49)](https://user-images.githubusercontent.com/54878075/93968842-833c8980-fd38-11ea-9835-1ece9d8f5e4e.png)
+![Screenshot (51)](https://user-images.githubusercontent.com/54878075/93968768-5b4d2600-fd38-11ea-88b1-d371a395ba0b.png)
