@@ -10,7 +10,7 @@ function createQmarks(num) {
 }
 
 // helper function to translate string into sql
-function translateSql(obj) {
+function translateSql(ob) {
   var arr = [];
   for (var key in ob) {
     var value = ob[key];
@@ -25,11 +25,11 @@ function translateSql(obj) {
 }
 
 var orm = {
-  // select all rows in the table
-  selectAll: function (table, cb) {
+  // select all rows in table
+  selectAll: function(table, cb) {
     var dbQuery = "SELECT * FROM " + table + ";";
     // run connection query
-    connection.query(dbQuery, function (err, res) {
+    connection.query(dbQuery, function(err, res) {
       if (err) {
         throw err;
       }
@@ -39,14 +39,15 @@ var orm = {
 
   // insert a row into the table
   insertOne: function(table, cols, vals, cb) {
-    var dbQuery = 
-    "INSERT INTO " + 
-    table +
-    " (" +
-    cols.toString() +
-    ") " +
-    createQmarks(vals.length) +
-    ") ";
+    var dbQuery =
+      "INSERT INTO " +
+      table +
+      " (" +
+      cols.toString() +
+      ") " +
+      "VALUES (" +
+      createQmarks(vals.length) +
+      ") ";
 
     console.log(dbQuery);
     connection.query(dbQuery, vals, function(err, res) {
@@ -56,18 +57,19 @@ var orm = {
       cb(res);
     });
   },
-  
+
   // update a row in the table
   updateOne: function(table, objColVals, condition, cb) {
-    var dbQuery = 
-    "UPDATE " + 
-    table +
-    " SET " +
-    translateSql(objColVals) +
-    " WHERE " +
-    condition;
+    var dbQuery =
+      "UPDATE " +
+      table +
+      " SET " +
+      translateSql(objColVals) +
+      " WHERE " +
+      condition;
 
     console.log(dbQuery);
+
     connection.query(dbQuery, function(err, res) {
       if (err) {
         throw err;
@@ -75,18 +77,19 @@ var orm = {
       cb(res);
     });
   },
-  
-  deleteOne: function (table, condition, cb) {
-    var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
 
+  // delete a row in the table
+  deleteOne: function(table, condition, cb) {
+    var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
     console.log(dbQuery);
-    connection.query(dbQuery, function (err, result) {
+
+    connection.query(dbQuery, function(err, res) {
       if (err) {
         throw err;
       }
-      cb(result);
+      cb(res);
     });
-  },
+  }
 };
 
 // export ORM for the model

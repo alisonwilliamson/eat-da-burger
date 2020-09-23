@@ -1,7 +1,7 @@
 {
-  "name": "eat-da-burger",
+  "name": "burger",
   "version": "1.0.0",
-  "description": "",
+  "description": "Burger app. using input the order to output complete.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,19 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alisonwilliamson/eat-da-burger.git"
+    "url": "git+https://github.com/Dcoxmen/Burger.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alisonwilliamson/eat-da-burger/issues"
+    "url": "https://github.com/Dcoxmen/Burger/issues"
   },
-  "homepage": "https://github.com/alisonwilliamson/eat-da-burger#readme",
+  "homepage": "https://github.com/Dcoxmen/Burger#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.18.3",
     "express": "^4.17.1",
-    "express-handlebars": "^5.1.0",
-    "handlebars": "^4.7.6",
-    "mysql": "^2.18.1"
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0"
   }
 }

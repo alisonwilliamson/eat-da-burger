@@ -11,6 +11,8 @@
 
 This is a burger logger created with MySQL, Node, Express, Handlebars and a homemade ORM. It follows the MVC design pattern; and uses Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
 
+After having trouble getting the devour button to work I got help from watching this tutorial https://www.youtube.com/watch?v=DBePtS8q6IA&ab_channel=DaventertainmentInc.
+
 ## Demo
 https://eat-da-burger-alison.herokuapp.com/
 
