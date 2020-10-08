@@ -1,21 +1,22 @@
 .jumbotron {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000000;
+  background-color: #e49322;
   color: #ffffff;
   margin-top: 3%;
+  text-align: center;
 }
-#newburger {
+#addedburger {
   color: #5c5c5c;
 }
-#leftside {
+#readyToEat {
   background-color: #5c5c5c;
   color: white;
   text-align: center;
   font-size: 1.3em;
 }
-#rightside {
-  background-color: #e49322;
+#devouredBurgers {
+  background-color: #B22222;
   color: white;
   text-align: center;
   font-size: 1.3em;
